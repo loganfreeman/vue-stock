@@ -1,28 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app
+    :class="{
+      'background-light': darkMode,
+      'background-dark': !darkMode,
+    }"
+  >
+    <the-header></the-header>
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+    <the-footer></the-footer>
+  </v-app>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
 </style>
+
+<script>
+import { mapGetters } from "vuex";
+import TheHeader from "@/components/TheHeader";
+import TheFooter from "@/components/TheFooter";
+export default {
+  components: {
+    TheHeader,
+    TheFooter,
+  },
+  computed: {
+    ...mapGetters({
+      theme: "themePicker/theme",
+    }),
+
+    darkMode() {
+      return this.theme === "light";
+    },
+  },
+};
+</script>
