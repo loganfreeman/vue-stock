@@ -35,8 +35,8 @@
     </v-card-text>
     <v-divider></v-divider>
     <v-expand-transition>
-      <v-list v-if="values">
-        <v-list-item v-for="(entry, j) in values" :key="j">
+      <v-row v-if="values">
+        <v-col v-for="(entry, j) in values" :key="j" :cols="3">
           <v-list>
             <v-list-item v-for="(item, key) in entry" :key="key">
               <v-list-item-content>
@@ -45,8 +45,8 @@
               </v-list-item-content>
             </v-list-item>
           </v-list>
-        </v-list-item>
-      </v-list>
+        </v-col>
+      </v-row>
     </v-expand-transition>
     <v-card-actions>
       <v-spacer></v-spacer>
