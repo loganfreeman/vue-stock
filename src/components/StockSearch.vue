@@ -3,6 +3,7 @@
     <v-card-title class="headline blue lighten-3">
       Search for Alpha Vantage APIs
     </v-card-title>
+
     <v-card-text>
       Alpha Vantage APIs are grouped into four categories: (1) Time Series Stock
       APIs, (2) Fundamental Data, (3) Physical and Digital/Crypto Currencies
@@ -16,6 +17,17 @@
         >Alpha Vantage APIs</a
       >.
     </v-card-text>
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <v-btn :disabled="!values" color="grey darken-3" @click="values = null">
+        Clear
+        <v-icon right> mdi-close-circle </v-icon>
+      </v-btn>
+      <v-btn :disabled="!values" color="grey darken-3" @click="compare">
+        Compare
+        <v-icon right> mdi-chart-bar </v-icon>
+      </v-btn>
+    </v-card-actions>
     <v-card-text>
       <v-autocomplete
         v-model="values"
@@ -48,13 +60,6 @@
         </v-col>
       </v-row>
     </v-expand-transition>
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn :disabled="!values" color="grey darken-3" @click="values = null">
-        Clear
-        <v-icon right> mdi-close-circle </v-icon>
-      </v-btn>
-    </v-card-actions>
   </v-card>
 </template>
 <script>
@@ -70,6 +75,12 @@ export default {
   }),
 
   computed: {},
+
+  methods: {
+    compare() {
+      this.$router.push("/chart");
+    },
+  },
 
   watch: {
     search(val) {
