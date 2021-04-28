@@ -22,3 +22,7 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Home Page
+
+https://loganfreeman.github.io/vue-stock/#/
