@@ -78,7 +78,10 @@ export default {
 
   methods: {
     compare() {
-      this.$router.push("/chart");
+      this.$router.push({
+        name: "Charts",
+        params: { symbols: this.values.map((s) => s["1. symbol"]).join("|") },
+      });
     },
   },
 
