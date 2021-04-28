@@ -1,11 +1,15 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <h1>Home</h1>
+    <StockSearch />
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import StockSearch from "@/components/StockSearch";
 export default {
   name: "Home",
-  components: {},
+  components: { StockSearch },
 };
 </script>

@@ -37,7 +37,7 @@
 </style>
 <template>
   <v-app-bar color="accent" app>
-    <v-btn link text color="primary" style="font-weight: bold" to="/home"
+    <v-btn link text color="primary" style="font-weight: bold" to="/"
       >Home</v-btn
     >
     <v-toolbar-items>
