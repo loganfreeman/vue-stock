@@ -1,15 +1,10 @@
 <template>
-  <v-app
-    :class="{
-      'background-light': darkMode,
-      'background-dark': !darkMode,
-    }"
-  >
-    <the-header></the-header>
+  <v-app>
+    <app-header></app-header>
     <v-main>
       <router-view></router-view>
     </v-main>
-    <the-footer></the-footer>
+    <app-footer></app-footer>
   </v-app>
 </template>
 
@@ -17,22 +12,13 @@
 </style>
 
 <script>
-import { mapGetters } from "vuex";
-import TheHeader from "@/components/TheHeader";
-import TheFooter from "@/components/TheFooter";
+import AppHeader from "@/components/AppHeader";
+import AppFooter from "@/components/AppFooter";
 export default {
   components: {
-    TheHeader,
-    TheFooter,
+    AppHeader,
+    AppFooter,
   },
-  computed: {
-    ...mapGetters({
-      theme: "themePicker/theme",
-    }),
-
-    darkMode() {
-      return this.theme === "light";
-    },
-  },
+  computed: {},
 };
 </script>
